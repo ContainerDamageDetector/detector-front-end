@@ -1,3 +1,20 @@
-.bodyBg {
-    background-color: blue;
+.section1 {
+  background-color:#ffffff;
+  padding-top: 50px;
+  width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  .section1heading {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 40px;
+    font-weight: 400;
+    font-family: "poppins";
+    color: #065367;
+  
   }
+  
+  
+}

@@ -1,18 +1,78 @@
 import React, { Component } from "react";
 import styles from "./imageUpload.module.css";
 import NavigationComponent from "../Navigation/navigation";
+import Grid from "@mui/material/Grid";
+import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import PhotoCamera from "@mui/icons-material/PhotoCamera";
+import axios, { post } from "axios";
 
 class ImageUploadComponent extends Component {
   state = {};
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      image: "",
+    };
+  }
+
+  onChange(e) {
+    let files = e.target.files;
+    let reader = new FileReader();
+    reader.readAsDataURL(files[0]);
+    reader.onload = (e) => {
+      console.warn("img data", e.target.result);
+    };
+
+    // console.warn("data files", files);
+  }
+
   render() {
     return (
       <div>
         <NavigationComponent></NavigationComponent>
-
-        <h1>Image Upload</h1>
-        <body className={styles.bodyBg}>
-          <p>TEST DSFGJKG</p>
-        </body>
+        <div className={styles.section1}>
+          <Grid container direction="row" justify="center" alignItems="center">
+            <Grid item xs={1} sm={1} md={1} lg={1} xl={1}></Grid>
+            <Grid item xs={10} sm={10} md={10} lg={10} xl={10}>
+              <h1 className={styles.section1heading}>
+                Please upload the container image
+              </h1>
+              <Grid
+                container
+                direction="row"
+                justify="center"
+                alignItems="center"
+              >
+                <Grid
+                  container
+                  spacing={2}
+                  columns={16}
+                  
+                  direction="row"
+                  justify="center"
+                  alignItems="center"
+                >
+                  <Grid item xs={8}>
+                    <div onSubmit={this.onFormSubmit}>
+                      <h1>React js File upload</h1>
+                      <input
+                        type="file"
+                        name="file"
+                        onChange={(e) => this.onChange(e)}
+                      />
+                    </div>
+                  </Grid>
+                  {/* <Grid item xs={8}>
+                    xs=8
+                  </Grid> */}
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item xs={1} sm={1} md={1} lg={1} xl={1}></Grid>
+          </Grid>
+        </div>
       </div>
     );
   }
