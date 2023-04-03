@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styles from "./damageDetected.module.css";
 import NavigationComponent from "../Navigation/navigation";
 import Grid from "@mui/material/Grid";
+import Card from '@mui/material/Card';
 
 class DamageDetectedComponent extends Component {
   state = {};
@@ -14,8 +15,7 @@ class DamageDetectedComponent extends Component {
             <Grid item xs={1} sm={1} md={1} lg={1} xl={1}></Grid>
             <Grid item xs={10} sm={10} md={10} lg={10} xl={10}>
               <h1 className={styles.section1heading}>
-                About{" "}
-                <span className={styles.section1heading2}> CodeMySketch </span>
+                Damages Detected
               </h1>
               <Grid
                 container
@@ -23,14 +23,58 @@ class DamageDetectedComponent extends Component {
                 justify="center"
                 alignItems="center"
               >
-                <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+                {/* <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
                   <img
                     // src={AboutUsCover}
                     alt="How To Use - Profile"
                     className={styles.imgcover}
                   />
+                </Grid> */}
+                <Grid
+                  container
+                  // spacing={0}
+                  direction="column"
+                  alignItems="center"
+                  justifyContent="center"
+                  style={{ minHeight: '10vh' }}
+                >
+
+                  <Grid item xs={3} sm={1} md={1} lg={1} xl={1}>
+                    <Card variant="outlined" sx={{ minWidth: 1000, minHeight: 500 }}>
+                    </Card>
+                  </Grid>
+
+                  <Grid item xs={3} sm={1} md={1} lg={1} xl={1}>
+                    <Grid container spacing={2} columns={16}>
+                      <Grid p xs={8}>
+                        <h4>Damage Type</h4>
+                      </Grid>
+                      <Grid p xs={8}>
+                        <p>(Damage Type)</p>
+                      </Grid>
+                    </Grid>
+
+                    <Grid container spacing={2} columns={16}>
+                      <Grid p xs={8}>
+                        <h4>Damage Severity Class</h4>
+                      </Grid>
+                      <Grid p xs={8}>
+                        <p>(Damage Severity Class)</p>
+                      </Grid>
+                    </Grid>
+
+                    <Grid container spacing={2} columns={16}>
+                      <Grid p xs={8}>
+                        <h4>Damage Component</h4>
+                      </Grid>
+                      <Grid p xs={8}>
+                        <p>(Damage Component)</p>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+
                 </Grid>
-                <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+                {/* <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
                   <p className={styles.section1subheading}>
                     The aim of the project is to design, develop and evaluate a
                     system that would generate prototype source code based on
@@ -55,7 +99,7 @@ class DamageDetectedComponent extends Component {
                     performance is affected by the training data sets which can
                     be improved by providing more labelled examples of sketches.
                   </p>
-                </Grid>
+                </Grid> */}
               </Grid>
             </Grid>
             <Grid item xs={1} sm={1} md={1} lg={1} xl={1}></Grid>
