@@ -32,28 +32,12 @@ class HomeComponent extends Component {
                 </Grid>
                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
                   <p className={styles.section1subheading}>
-                    The aim of the project is to design, develop and evaluate a
-                    system that would generate prototype source code based on
-                    the hand drawn wireframes. <br></br>
+                    test <br></br>
                     <br></br>
-                    This project will provide a software solution to automate
-                    the process of implementing GUIs after the hand-drawn
-                    sketches/wireframes are done without the requirement of
-                    coding for any user.<br></br>
+                    sdfsfsfsfsfsfsfsf<br></br>
                     <br></br>
-                    Through the implementation of this project, it will be
-                    capable to accurately detect and classify GUI-components in
-                    a mock-up artifact, generate hierarchies that are similar to
-                    those that a developer would create and to generate on
-                    creation of apps that are visually similar to mock-up
-                    artifacts. <br></br>
-                    <br></br>A novel approach is aimed throughout this project
-                    which the prototyping process can be automated to save time
-                    on developing UI prototypes. Using this approach, the
-                    application components can be developed from its sketches
-                    and convert it into its corresponding UI which the
-                    performance is affected by the training data sets which can
-                    be improved by providing more labelled examples of sketches.
+                    sdfsfsffcsvdfgdfgdgd <br></br>
+                    <br></br>fgdfggdfgdgdgdfgdgdfgdgfdgvxc
                   </p>
                 </Grid>
               </Grid>
