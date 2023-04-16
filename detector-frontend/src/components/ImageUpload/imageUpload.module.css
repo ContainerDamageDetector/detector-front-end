@@ -15,6 +15,17 @@
     color: #065367;
   
   }
-  
+
+.uploadsketchbutton {
+  background-color: #ffffff;
+  color: #065367;
+  padding: 6px 75px 6px 75px;
+  text-transform: unset;
+  border-radius: 10px;
+  transition: ease-in-out;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 15px;
+}
   
 }

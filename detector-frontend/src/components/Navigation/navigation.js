@@ -26,8 +26,10 @@ class NavigationComponent extends Component {
                   <Tab item xs={2.5} label="Login" href="/login"></Tab>
                   <Tab item xs={2.5} label="Home" href="/"></Tab>
                   <Tab item xs={2.5} label="ImageUpload" href="/imageUpload"></Tab>
+                  <Tab item xs={2.5} label="DamagesList" href="/viewDamageList"></Tab>
                   <Tab item xs={2.5} label="DetectDamages" href="/viewDetectedDamages"></Tab>
                   <Tab item xs={2.5} label="RecoverPrice" href="/viewRecoverPrice"></Tab>
+
                 </Tabs>
               </Grid>
 

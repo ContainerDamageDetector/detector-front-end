@@ -7,6 +7,8 @@ import HomeComponent from "./components/home/home.js";
 import ImageUploadComponent from "./components/ImageUpload/imageUpload.js";
 import DamageDetectedComponent from "./components/DamageDetected/damageDetected.js";
 import RecoverPriceComponent from "./components/RecoverPrice/recoverPrice.js";
+import DamageListComponent from "./components/DamageDetected/damagesList.js";
+
 
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
           <Route exact path="/imageUpload" element={<ImageUploadComponent />}></Route>
           <Route exact path="/viewDetectedDamages" element={<DamageDetectedComponent />}></Route>
           <Route exact path="/viewRecoverPrice" element={<RecoverPriceComponent />}></Route>
+          <Route exact path="/viewDamageList" element={<DamageListComponent />}></Route>
+
 
         </Routes>
       </Router>

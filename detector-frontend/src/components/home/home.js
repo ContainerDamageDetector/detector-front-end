@@ -1,10 +1,13 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import styles from "./home.module.css";
 import NavigationComponent from "../Navigation/navigation";
 import Grid from "@mui/material/Grid";
+import { Button } from "@mui/material";
+import axios from '../../services/api.service';
 
 class HomeComponent extends Component {
   state = {};
+  
   render() {
     return (
       <div>
@@ -38,7 +41,7 @@ class HomeComponent extends Component {
                     <br></br>
                     sdfsfsffcsvdfgdfgdgd <br></br>
                     <br></br>fgdfggdfgdgdgdfgdgdfgdgfdgvxc
-                  </p>
+                    </p>
                 </Grid>
               </Grid>
             </Grid>
