@@ -9,7 +9,12 @@ import DamageDetectedComponent from "./components/DamageDetected/damageDetected.
 import RecoverPriceComponent from "./components/RecoverPrice/recoverPrice.js";
 import DamageListComponent from "./components/DamageDetected/damagesList.js";
 
-
+export const authentication = {
+  getLoginInStatus() {
+    var isLoggedIn = localStorage.getItem("accessToken");
+    return !!isLoggedIn
+  },
+};
 
 function App() {
   return (
@@ -22,7 +27,6 @@ function App() {
           <Route exact path="/viewDetectedDamages" element={<DamageDetectedComponent />}></Route>
           <Route exact path="/viewRecoverPrice" element={<RecoverPriceComponent />}></Route>
           <Route exact path="/viewDamageList" element={<DamageListComponent />}></Route>
-
 
         </Routes>
       </Router>

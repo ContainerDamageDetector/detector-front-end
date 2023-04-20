@@ -10,4 +10,7 @@ export const uploadImage = (data) => api.post('/image',data)
 export const getUploadImageUrl = (data) => api.get('/image/getPresignedUrl',data)
 
 //call api to get list of damages
-export const getDamageList = (data) => api.get('/image/damageList',data)
+export const getDamageList = () => api.get('/image/damageList')
+
+//get data of image
+export const getImageData = (id) => api.get(`image/${id}`)

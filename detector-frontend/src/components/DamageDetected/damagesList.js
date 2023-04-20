@@ -4,7 +4,7 @@ import NavigationComponent from "../Navigation/navigation";
 import Grid from "@mui/material/Grid";
 import { FormControl, Table } from "@mui/material";
 import { getDamageList } from "../../services/auth.service";
-import {MenuItem} from '@mui/material';
+import { MenuItem } from "@mui/material";
 
 class DamageListComponent extends Component {
   constructor(props) {
@@ -18,9 +18,7 @@ class DamageListComponent extends Component {
     getDamageList()
       .then((res) => {
         console.log(res.data);
-        const { data } = res.data;
-        this.setState({ items: data });
-        // console.log(res);
+        this.setState({ items: res.data });
       })
       .catch((err) => {
         console.error(err);
@@ -30,10 +28,6 @@ class DamageListComponent extends Component {
   render() {
     const { items } = this.state;
 
-    // if (!items) {
-    //     return <div>Loading...</div>;
-    //   }
-
     return (
       <div>
         <NavigationComponent></NavigationComponent>
@@ -41,7 +35,7 @@ class DamageListComponent extends Component {
           <Grid container direction="row" justify="center" alignItems="center">
             <Grid item xs={1} sm={1} md={1} lg={1} xl={1}></Grid>
             <Grid item xs={10} sm={10} md={10} lg={10} xl={10}>
-              <h1 className={styles.section1heading}>Damages List</h1>
+              <h1 className={styles.section1heading}>Damage List</h1>
               <Grid
                 container
                 direction="row"
@@ -56,16 +50,28 @@ class DamageListComponent extends Component {
                   justifyContent="center"
                   style={{ minHeight: "10vh" }}
                 >
-                  {items &&
-                    items.map((item) => (
-                      <tr>
-                        <td>{item.title}</td>
-                        <td>{item.imageUrl}</td>
-                        <td>{item.damage_type}</td>
-                        <td>{item.severity}</td>
-                        <td>{item.recover_price}</td>
-                      </tr>
-                    ))}
+                  <Table>
+                    <tr>
+                      <th>title</th>
+                      <th>imageUrl</th>
+                      <th>damage_type</th>
+                      <th>severity</th>
+                      <th>recover_price</th>
+                    </tr>
+
+                    {
+                      items.map((item) => (
+                        <tr>
+                          <a href="/">
+                            <td>{item.title}</td>
+                            </a>
+                          <td>{item.imageUrl}</td>
+                          <td>{item.damage_type}</td>
+                          <td>{item.severity}</td>
+                          <td>{item.recover_price}</td>
+                        </tr>
+                      ))}
+                  </Table>
 
                   <Grid item xs={3} sm={1} md={1} lg={1} xl={1}></Grid>
 
