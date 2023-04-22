@@ -5,6 +5,33 @@ import Grid from "@mui/material/Grid";
 import { Table } from "@mui/material";
 import { getRecoverPriceList } from "../../services/auth.service";
 import { Link } from "react-router-dom";
+import { styled } from "@mui/material/styles";
+import TableBody from "@mui/material/TableBody";
+import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 14,
+  },
+}));
+
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+  "&:nth-of-type(odd)": {
+    backgroundColor: theme.palette.action.hover,
+  },
+  // hide last border
+  "&:last-child td, &:last-child th": {
+    border: 0,
+  },
+}));
 
 class RecoverPriceComponent extends Component {
   constructor(props) {
@@ -50,31 +77,43 @@ class RecoverPriceComponent extends Component {
                   justifyContent="center"
                   style={{ minHeight: "10vh" }}
                 >
-                  <Table>
-                    <tr>
-                      <th>id</th>
-                      <th>title</th>
-                      {/* <th>imageUrl</th> */}
-                      <th>recover_price</th>
-                    </tr>
-                    {items.map((item) => (
-                      <tr>
-                        {/* <a href="/">
-                            <td>{item.title}</td>
-                            </a> */}
+                  <TableContainer component={Paper}>
+                    <Table sx={{ minWidth: 700 }} aria-label="customized table">
+                      <TableHead>
+                        <TableRow>
+                          <StyledTableCell align="center">Id</StyledTableCell>
+                          <StyledTableCell align="center">
+                            Title
+                          </StyledTableCell>
+                          <StyledTableCell align="center">
+                            Recover Price
+                          </StyledTableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {items.map((item) => (
+                          <StyledTableRow key={item.id}>
+                            <StyledTableCell
+                              align="center"
+                              component="th"
+                              scope="row"
+                            >
+                              {item.id}
+                            </StyledTableCell>
+                            <StyledTableCell align="center">
+                              <Link to={`/viewRecoverPrice/${item.id}`}>
+                                {item.title}
+                              </Link>
+                            </StyledTableCell>
 
-                        <td>{item.id}</td>
-                        <td>
-                          <Link to={`/viewRecoverPrice/${item.id}`}>
-                            {item.title}
-                          </Link>
-                        </td>
-
-                        {/* <td>{item.imageUrl}</td> */}
-                        <td>{item.recover_price}</td>
-                      </tr>
-                    ))}
-                  </Table>
+                            <StyledTableCell align="center">
+                              {item.recover_price}
+                            </StyledTableCell>
+                          </StyledTableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
 
                   <Grid item xs={3} sm={1} md={1} lg={1} xl={1}></Grid>
 

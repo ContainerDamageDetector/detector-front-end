@@ -6,7 +6,33 @@ import { FormControl, Table } from "@mui/material";
 import { getDamageList } from "../../services/auth.service";
 import { MenuItem } from "@mui/material";
 import { Link } from "react-router-dom";
+import { styled } from "@mui/material/styles";
+import TableBody from "@mui/material/TableBody";
+import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
 
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 14,
+  },
+}));
+
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+  "&:nth-of-type(odd)": {
+    backgroundColor: theme.palette.action.hover,
+  },
+  // hide last border
+  "&:last-child td, &:last-child th": {
+    border: 0,
+  },
+}));
 
 class DamageListComponent extends Component {
   constructor(props) {
@@ -52,28 +78,40 @@ class DamageListComponent extends Component {
                   justifyContent="center"
                   style={{ minHeight: "10vh" }}
                 >
-                  <Table>
-                    <tr>
-                      <th>id</th>
-                      <th>title</th>
-                      {/* <th>imageUrl</th> */}
-                      <th>damage_type</th>
-                      <th>severity</th>
-                    </tr>
+                  <TableContainer component={Paper}>
+                    <Table sx={{ minWidth: 700 }} aria-label="customized table">
+                      <TableHead>
+                        <TableRow>
+                          <StyledTableCell align="center">Id</StyledTableCell>
+                          <StyledTableCell align="center">Title</StyledTableCell>
+                          <StyledTableCell align="center">Damage Type</StyledTableCell>
+                          <StyledTableCell align="center">severity</StyledTableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {items.map((item) => (
+                          <StyledTableRow key={item.id}>
+                            <StyledTableCell component="th" scope="row">
+                              {item.id}
+                            </StyledTableCell>
 
-                    {
-                      items.map((item) => (
-                        <tr>
-                          <td>{item.id}</td>
-                          <Link to={`/viewDetectedDamages/${item.id}`}>
-                            {item.title}
-                          </Link>
-                          {/* <td>{item.imageUrl}</td> */}
-                          <td>{item.damage_type}</td>
-                          <td>{item.severity}</td>
-                        </tr>
-                      ))}
-                  </Table>
+                            <StyledTableCell align="center">
+                              <Link to={`/viewDetectedDamages/${item.id}`}>
+                                {item.title}
+                              </Link>
+                            </StyledTableCell>
+
+                            <StyledTableCell align="center">
+                              {item.damage_type}
+                            </StyledTableCell>
+                            <StyledTableCell align="center">
+                              {item.severity}
+                            </StyledTableCell>
+                          </StyledTableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
 
                   <Grid item xs={3} sm={1} md={1} lg={1} xl={1}></Grid>
 

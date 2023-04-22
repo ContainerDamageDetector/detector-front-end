@@ -12,6 +12,7 @@ function RecoverPriceComponent() {
   const { id } = useParams();
   const [recoverPrice, setRecoverPrice] = useState(null);
   const [imageSrc, setImageSrc] = useState("");
+  // const [imageData, setImageData] = useState(null);
 
   useEffect(() => {
     getImageData(parseInt(id))
