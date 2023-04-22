@@ -1,13 +1,65 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import styles from "./recoverPrice.module.css";
 import NavigationComponent from "../Navigation/navigation";
 import Grid from "@mui/material/Grid";
-import Card from '@mui/material/Card';
+import Card from "@mui/material/Card";
+import { getImageData } from "../../services/auth.service";
+import { useParams } from "react-router-dom";
+import { getImage } from "../../services/auth.service";
 
-class RecoverPriceComponent extends Component {
-  state = {};
-  render() {
-    return (
+
+function RecoverPriceComponent() {
+  const { id } = useParams();
+  const [recoverPrice, setRecoverPrice] = useState(null);
+  const [imageSrc, setImageSrc] = useState("");
+  const [imageData, setImageData] = useState(null);
+
+  useEffect(() => {
+    getImageData(parseInt(id))
+      .then((res) => {
+        console.log(res.data.data.imageUrl);
+        setImageData(res.data.data.imageUrl);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, [id]);
+
+  useEffect(() => {
+    getImageData(parseInt(id))
+      .then((res) => {
+        console.log(res.data);
+        console.log(res.data.data.recover_price);
+        setRecoverPrice(res.data.data.recover_price);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, [id]);
+
+  useEffect(() => {
+    console.log("**************", imageData)
+    if (!imageData) return 
+    const key = imageData.split('s3://container-damage-detector/uploads/images/')[1];
+    console.log("key", key)
+    // const key = imageData.*", key)
+
+    fetch(
+      // "http://localhost:3001/api/image/uploads/images/201ac717-f59c-4dc8-b8c5-09a50316f88e.jpg"
+      `http://localhost:3001/api/image/uploads/images/${key}`
+    )
+      .then((response) => response.blob())
+      .then((data) => {
+        setImageSrc(URL.createObjectURL(data));
+      });
+  }, [imageData]);
+
+  return (
+    <div>
+      {/* <h1>Recover Price Component</h1>
+      <p>Id: {id}</p>
+      {recoverPrice && <p>Recover Price: {recoverPrice}</p>} */}
+
       <div>
         <NavigationComponent></NavigationComponent>
         <div className={styles.section1}>
@@ -23,24 +75,20 @@ class RecoverPriceComponent extends Component {
                 justify="center"
                 alignItems="center"
               >
-                {/* <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-                  <img
-                    // src={AboutUsCover}
-                    alt="How To Use - Profile"
-                    className={styles.imgcover}
-                  />
-                </Grid> */}
                 <Grid
                   container
                   // spacing={0}
                   direction="column"
                   alignItems="center"
                   justifyContent="center"
-                  style={{ minHeight: '10vh' }}
+                  style={{ minHeight: "10vh" }}
                 >
-
                   <Grid item xs={3} sm={1} md={1} lg={1} xl={1}>
-                    <Card variant="outlined" sx={{ minWidth: 1000, minHeight: 500 }}>
+                    <Card
+                      variant="outlined"
+                      sx={{ minWidth: 1000, minHeight: 500 }}
+                    >
+                      <img src={imageSrc} alt="My Image" />
                     </Card>
                   </Grid>
 
@@ -50,47 +98,21 @@ class RecoverPriceComponent extends Component {
                         <h4>Estimated Recover Price</h4>
                       </Grid>
                       <Grid p xs={8}>
-                        <p>(Estimated Recover Price)</p>
+                        {/* <p>(Estimated Recover Price)</p> */}
+
+                        {<p>{recoverPrice}</p>}
                       </Grid>
                     </Grid>
-
                   </Grid>
-
                 </Grid>
-                {/* <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-                  <p className={styles.section1subheading}>
-                    The aim of the project is to design, develop and evaluate a
-                    system that would generate prototype source code based on
-                    the hand drawn wireframes. <br></br>
-                    <br></br>
-                    This project will provide a software solution to automate
-                    the process of implementing GUIs after the hand-drawn
-                    sketches/wireframes are done without the requirement of
-                    coding for any user.<br></br>
-                    <br></br>
-                    Through the implementation of this project, it will be
-                    capable to accurately detect and classify GUI-components in
-                    a mock-up artifact, generate hierarchies that are similar to
-                    those that a developer would create and to generate on
-                    creation of apps that are visually similar to mock-up
-                    artifacts. <br></br>
-                    <br></br>A novel approach is aimed throughout this project
-                    which the prototyping process can be automated to save time
-                    on developing UI prototypes. Using this approach, the
-                    application components can be developed from its sketches
-                    and convert it into its corresponding UI which the
-                    performance is affected by the training data sets which can
-                    be improved by providing more labelled examples of sketches.
-                  </p>
-                </Grid> */}
               </Grid>
             </Grid>
             <Grid item xs={1} sm={1} md={1} lg={1} xl={1}></Grid>
           </Grid>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default RecoverPriceComponent;

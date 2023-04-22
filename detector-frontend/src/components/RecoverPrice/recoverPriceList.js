@@ -1,14 +1,12 @@
 import React, { Component } from "react";
-import styles from "./damageDetected.module.css";
+import styles from "./recoverPrice.module.css";
 import NavigationComponent from "../Navigation/navigation";
 import Grid from "@mui/material/Grid";
-import { FormControl, Table } from "@mui/material";
-import { getDamageList } from "../../services/auth.service";
-import { MenuItem } from "@mui/material";
+import { Table } from "@mui/material";
+import { getRecoverPriceList } from "../../services/auth.service";
 import { Link } from "react-router-dom";
 
-
-class DamageListComponent extends Component {
+class RecoverPriceComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,7 +15,7 @@ class DamageListComponent extends Component {
   }
 
   componentDidMount() {
-    getDamageList()
+    getRecoverPriceList()
       .then((res) => {
         console.log(res.data);
         this.setState({ items: res.data });
@@ -37,7 +35,7 @@ class DamageListComponent extends Component {
           <Grid container direction="row" justify="center" alignItems="center">
             <Grid item xs={1} sm={1} md={1} lg={1} xl={1}></Grid>
             <Grid item xs={10} sm={10} md={10} lg={10} xl={10}>
-              <h1 className={styles.section1heading}>Damage List</h1>
+              <h1 className={styles.section1heading}>Recover Price List</h1>
               <Grid
                 container
                 direction="row"
@@ -57,22 +55,25 @@ class DamageListComponent extends Component {
                       <th>id</th>
                       <th>title</th>
                       {/* <th>imageUrl</th> */}
-                      <th>damage_type</th>
-                      <th>severity</th>
+                      <th>recover_price</th>
                     </tr>
+                    {items.map((item) => (
+                      <tr>
+                        {/* <a href="/">
+                            <td>{item.title}</td>
+                            </a> */}
 
-                    {
-                      items.map((item) => (
-                        <tr>
-                          <td>{item.id}</td>
-                          <Link to={`/viewDetectedDamages/${item.id}`}>
+                        <td>{item.id}</td>
+                        <td>
+                          <Link to={`/viewRecoverPrice/${item.id}`}>
                             {item.title}
                           </Link>
-                          {/* <td>{item.imageUrl}</td> */}
-                          <td>{item.damage_type}</td>
-                          <td>{item.severity}</td>
-                        </tr>
-                      ))}
+                        </td>
+
+                        {/* <td>{item.imageUrl}</td> */}
+                        <td>{item.recover_price}</td>
+                      </tr>
+                    ))}
                   </Table>
 
                   <Grid item xs={3} sm={1} md={1} lg={1} xl={1}></Grid>
@@ -89,4 +90,4 @@ class DamageListComponent extends Component {
   }
 }
 
-export default DamageListComponent;
+export default RecoverPriceComponent;

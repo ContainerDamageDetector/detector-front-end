@@ -8,6 +8,9 @@ import ImageUploadComponent from "./components/ImageUpload/imageUpload.js";
 import DamageDetectedComponent from "./components/DamageDetected/damageDetected.js";
 import RecoverPriceComponent from "./components/RecoverPrice/recoverPrice.js";
 import DamageListComponent from "./components/DamageDetected/damagesList.js";
+import RecoverPriceListComponent from "./components/RecoverPrice/recoverPriceList";
+
+
 
 export const authentication = {
   getLoginInStatus() {
@@ -24,9 +27,10 @@ function App() {
           <Route exact path="/login" element={<LoginComponent />}></Route>
           <Route exact path="/" element={<HomeComponent />}></Route>
           <Route exact path="/imageUpload" element={<ImageUploadComponent />}></Route>
-          <Route exact path="/viewDetectedDamages" element={<DamageDetectedComponent />}></Route>
-          <Route exact path="/viewRecoverPrice" element={<RecoverPriceComponent />}></Route>
+          <Route exact path="/viewDetectedDamages/:id" element={<DamageDetectedComponent />}></Route>
+          <Route exact path="/viewRecoverPrice/:id" element={<RecoverPriceComponent />}></Route>
           <Route exact path="/viewDamageList" element={<DamageListComponent />}></Route>
+          <Route exact path="/viewRecoverPriceList" element={<RecoverPriceListComponent />}></Route>
 
         </Routes>
       </Router>

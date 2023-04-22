@@ -25,10 +25,11 @@ class NavigationComponent extends Component {
                 <Tabs textColor="inherit">
                   <Tab item xs={2.5} label="Login" href="/login"></Tab>
                   <Tab item xs={2.5} label="Home" href="/"></Tab>
-                  <Tab item xs={2.5} label="ImageUpload" href="/imageUpload"></Tab>
-                  <Tab item xs={2.5} label="DamagesList" href="/viewDamageList"></Tab>
-                  <Tab item xs={2.5} label="DetectDamages" href="/viewDetectedDamages"></Tab>
-                  <Tab item xs={2.5} label="RecoverPrice" href="/viewRecoverPrice"></Tab>
+                  <Tab item xs={2.5} label="Image Upload" href="/imageUpload"></Tab>
+                  <Tab item xs={2.5} label="Damage List" href="/viewDamageList"></Tab>
+                  {/* <Tab item xs={2.5} label="Detect Damages" href="/viewDetectedDamages"></Tab> */}
+                  <Tab item xs={2.5} label="Recover Price List" href="/viewRecoverPriceList"></Tab>
+                  {/* <Tab item xs={2.5} label="Recover Price" href="/viewRecoverPrice"></Tab> */}
 
                 </Tabs>
               </Grid>
@@ -48,7 +49,7 @@ class NavigationComponent extends Component {
                 xs={2.5}
                 variant="contained"
               >
-                SignUp
+                Create User
               </Button>
             </Grid>
           </Toolbar>

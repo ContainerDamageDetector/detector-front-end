@@ -84,7 +84,10 @@ class ImageUploadComponent extends Component {
         <NavigationComponent></NavigationComponent>
 
         <div className={styles.section1}>
-          <Grid container direction="row" justify="center" alignItems="center">
+        <Grid container direction="row" justify="center" alignItems="center">
+            <Grid item xs={1} sm={1} md={1} lg={1} xl={1}></Grid>
+            <Grid item xs={10} sm={10} md={10} lg={10} xl={10}>
+            
             <Grid
               container
               direction="row"
@@ -145,6 +148,7 @@ class ImageUploadComponent extends Component {
             </Grid>
 
             <Grid item xs={1} sm={1} md={1} lg={1} xl={1}></Grid>
+            </Grid>
           </Grid>
         </div>
       </div>
