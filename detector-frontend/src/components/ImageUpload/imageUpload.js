@@ -119,10 +119,9 @@ class ImageUploadComponent extends Component {
                       <br></br>
                       <label htmlFor="contained-button-file">
                         
-
                         <br></br>
 
-                        <Button
+                        {/* <Button
                           className={styles.uploadsketchbutton}
                           variant="contained"
                           color="primary"
@@ -130,7 +129,7 @@ class ImageUploadComponent extends Component {
                           disabled={!this.state.agree}
                         >
                           Browse
-                        </Button>
+                        </Button> */}
                       </label>
                     </div>
                   </div>
@@ -139,12 +138,12 @@ class ImageUploadComponent extends Component {
                 </Grid>
               </form>
 
-              <Grid item xs={8}>
+              {/* <Grid item xs={8}>
                 <Card
                   variant="outlined"
                   sx={{ minWidth: -150, minHeight: 500 }}
                 ></Card>
-              </Grid>
+              </Grid> */}
             </Grid>
 
             <Grid item xs={1} sm={1} md={1} lg={1} xl={1}></Grid>

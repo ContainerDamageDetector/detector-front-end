@@ -11,18 +11,21 @@ function DamageDetectedComponent() {
   const { id } = useParams();
   const [damage_type, setDamageType] = useState(null);
   const [severity, setSeverity] = useState(null);
-  const [imageData, setImageData] = useState(null);
+  const [imageSrc, setImageSrc] = useState("");
 
-  // useEffect(() => {
-  //   getImageData(parseInt(id))
-  //     .then((res) => {
-  //       console.log(res.data.data.imageUrl);
-  //       setImageData(res.data.data.imageUrl);
-  //     })
-  //     .catch((err) => {
-  //       console.error(err);
-  //     });
-  // }, [id]);
+  useEffect(() => {
+    getImageData(parseInt(id))
+      .then((res) => {
+        console.log(res.data.data.imageUrl);
+          setImageData(res.data.data.imageUrl);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, [id]);
+
+  const [imageData, setImageData] = useState(imageSrc);
+  console.log("imageData", imageData)
 
   useEffect(() => {
     getImageData(parseInt(id))
@@ -37,22 +40,18 @@ function DamageDetectedComponent() {
       });
   }, [id]);
 
-  // useEffect(() => {
-  //   console.log("**************", imageData)
-  //   if (!imageData) return
-  //   const key = imageData.split('s3://container-damage-detector/uploads/images/')[1];
-  //   console.log("key", key)
-  //   // const key = imageData.*", key)
-
-  //   fetch(
-  //     // "http://localhost:3001/api/image/uploads/images/201ac717-f59c-4dc8-b8c5-09a50316f88e.jpg"
-  //     `http://localhost:3001/api/image/uploads/images/${key}`
-  //   )
-  //     .then((response) => response.blob())
-  //     .then((data) => {
-  //       setImageSrc(URL.createObjectURL(data));
-  //     });
-  // }, [imageData]);
+  useEffect(() => {
+    if (!imageData) return 
+    const key = imageData.split("images/")[1];
+    
+    fetch(
+      `http://localhost:3001/api/image/uploads/images/${key}`
+    )
+      .then((response) => response.blob())
+      .then((data) => {
+        setImageSrc(URL.createObjectURL(data));
+      });
+  }, [imageData]);
 
   return (
     <div>
@@ -84,7 +83,7 @@ function DamageDetectedComponent() {
                       variant="outlined"
                       sx={{ minWidth: 1000, minHeight: 500 }}
                     >
-                      {/* <img src={imageSrc} alt="My Image" /> */}
+                      <img style={{ width: '1000px', height: '500px' }} src={imageSrc} alt="Container Image" />
                     </Card>
                   </Grid>
 
@@ -107,14 +106,14 @@ function DamageDetectedComponent() {
                       </Grid>
                     </Grid>
 
-                    <Grid container spacing={2} columns={16}>
+                    {/* <Grid container spacing={2} columns={16}>
                       <Grid p xs={8}>
                         <h4>Damage Component</h4>
                       </Grid>
                       <Grid p xs={8}>
                         <p>(Damage Component)</p>
                       </Grid>
-                    </Grid>
+                    </Grid> */}
                   </Grid>
                 </Grid>
               </Grid>

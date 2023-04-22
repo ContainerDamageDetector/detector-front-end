@@ -5,25 +5,27 @@ import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import { getImageData } from "../../services/auth.service";
 import { useParams } from "react-router-dom";
-import { getImage } from "../../services/auth.service";
 
 
 function RecoverPriceComponent() {
+
   const { id } = useParams();
   const [recoverPrice, setRecoverPrice] = useState(null);
   const [imageSrc, setImageSrc] = useState("");
-  const [imageData, setImageData] = useState(null);
 
   useEffect(() => {
     getImageData(parseInt(id))
       .then((res) => {
         console.log(res.data.data.imageUrl);
-        setImageData(res.data.data.imageUrl);
+          setImageData(res.data.data.imageUrl);
       })
       .catch((err) => {
         console.error(err);
       });
   }, [id]);
+
+  const [imageData, setImageData] = useState(imageSrc);
+  console.log("imageData", imageData)
 
   useEffect(() => {
     getImageData(parseInt(id))
@@ -38,14 +40,10 @@ function RecoverPriceComponent() {
   }, [id]);
 
   useEffect(() => {
-    console.log("**************", imageData)
     if (!imageData) return 
-    const key = imageData.split('s3://container-damage-detector/uploads/images/')[1];
-    console.log("key", key)
-    // const key = imageData.*", key)
-
+    const key = imageData.split("images/")[1];
+    
     fetch(
-      // "http://localhost:3001/api/image/uploads/images/201ac717-f59c-4dc8-b8c5-09a50316f88e.jpg"
       `http://localhost:3001/api/image/uploads/images/${key}`
     )
       .then((response) => response.blob())
@@ -55,6 +53,8 @@ function RecoverPriceComponent() {
   }, [imageData]);
 
   return (
+    
+
     <div>
       {/* <h1>Recover Price Component</h1>
       <p>Id: {id}</p>
@@ -88,7 +88,7 @@ function RecoverPriceComponent() {
                       variant="outlined"
                       sx={{ minWidth: 1000, minHeight: 500 }}
                     >
-                      <img src={imageSrc} alt="My Image" />
+                      <img style={{ width: '1000px', height: '500px' }} src={imageSrc} alt="Container Image" />
                     </Card>
                   </Grid>
 
