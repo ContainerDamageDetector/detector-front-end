@@ -96,7 +96,7 @@ function RecoverPriceComponent() {
                   <Grid item xs={3} sm={1} md={1} lg={1} xl={1}>
                     <Grid container spacing={2} columns={16}>
                       <Grid p xs={8}>
-                        <h4>Estimated Recover Price</h4>
+                        <h4>Estimated Recover Price (USD)</h4>
                       </Grid>
                       <Grid p xs={8}>
                         {/* <p>(Estimated Recover Price)</p> */}

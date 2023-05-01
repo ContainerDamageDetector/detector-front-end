@@ -88,9 +88,18 @@ function DamageDetectedComponent() {
                   </Grid>
 
                   <Grid item xs={3} sm={1} md={1} lg={1} xl={1}>
+                  <Grid container spacing={2} columns={16}>
+                      <Grid p xs={8}>
+                        <h4>Damage Id #:</h4>
+                      </Grid>
+                      <Grid p xs={8}>
+                        {<p>{id}</p>}
+                      </Grid>
+                    </Grid>
+
                     <Grid container spacing={2} columns={16}>
                       <Grid p xs={8}>
-                        <h4>Damage Type</h4>
+                        <h4>Damage Type: </h4>
                       </Grid>
                       <Grid p xs={8}>
                         {<p>{damage_type}</p>}
@@ -99,7 +108,7 @@ function DamageDetectedComponent() {
 
                     <Grid container spacing={2} columns={16}>
                       <Grid p xs={8}>
-                        <h4>Damage Severity Class</h4>
+                        <h4>Damage Severity Class: </h4>
                       </Grid>
                       <Grid p xs={8}>
                         {<p>{severity}</p>}

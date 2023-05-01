@@ -20,11 +20,11 @@ class NavigationComponent extends Component {
         <AppBar sx={{ background: "#04549c" }}>
           <Toolbar>
             <Grid container>
-              <AcUnitIcon></AcUnitIcon>
+              {/* <AcUnitIcon></AcUnitIcon> */}
               <Grid>
                 <Tabs textColor="inherit">
-                  <Tab item xs={2.5} label="Login" href="/login"></Tab>
-                  <Tab item xs={2.5} label="Home" href="/"></Tab>
+                  {/* <Tab item xs={2.5} label="Login" href="/login"></Tab> */}
+                  <Tab item xs={2.5} label="About" href="/"></Tab>
                   <Tab item xs={2.5} label="Image Upload" href="/imageUpload"></Tab>
                   <Tab item xs={2.5} label="Damage List" href="/viewDamageList"></Tab>
                   {/* <Tab item xs={2.5} label="Detect Damages" href="/viewDetectedDamages"></Tab> */}
@@ -41,13 +41,14 @@ class NavigationComponent extends Component {
                 variant="contained"
                 href="/login"
               >
-                Login
+                Logout
               </Button>
               <Button
                 sx={{ marginLeft: "10px" }}
                 item
                 xs={2.5}
                 variant="contained"
+                href="/createUser"
               >
                 Create User
               </Button>

@@ -83,7 +83,7 @@ class DamageListComponent extends Component {
                       <TableHead>
                         <TableRow>
                           <StyledTableCell align="center">Id</StyledTableCell>
-                          <StyledTableCell align="center">Title</StyledTableCell>
+                          <StyledTableCell align="center">Image</StyledTableCell>
                           <StyledTableCell align="center">Damage Type</StyledTableCell>
                           <StyledTableCell align="center">severity</StyledTableCell>
                         </TableRow>

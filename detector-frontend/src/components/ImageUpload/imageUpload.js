@@ -12,6 +12,7 @@ import { Button } from "@mui/material";
 
 class ImageUploadComponent extends Component {
   state = {};
+  
 
   constructor(props) {
     super(props);
@@ -23,7 +24,7 @@ class ImageUploadComponent extends Component {
   }
 
   render() {
-    const { user } = this.context;
+
 
     const uploadPicture = (e) => {
       this.setState(
@@ -63,6 +64,9 @@ class ImageUploadComponent extends Component {
           title: "image",
           imageUrl: getUploadImageRes.imageUrl,
         });
+        
+        toast.success("SUCCESS!")
+
         this.setState({ imageData, isLoading: false });
       } catch (e) {
         console.log(e);
@@ -97,7 +101,7 @@ class ImageUploadComponent extends Component {
               <Grid item xs={1} sm={1} md={1} lg={1} xl={1}></Grid>
               <Grid item xs={10} sm={10} md={10} lg={10} xl={10}>
                 <h1 className={styles.section1heading}>
-                  Please upload the image
+                  Please upload the container image
                 </h1>
               </Grid>
             </Grid>
@@ -111,7 +115,7 @@ class ImageUploadComponent extends Component {
                         className={styles.uploadsketchfile}
                         accept="image/*"
                         id="contained-button-file"
-                        multiple
+                        // multiple
                         type="file"
                         name="image"
                         onChange={uploadPicture}

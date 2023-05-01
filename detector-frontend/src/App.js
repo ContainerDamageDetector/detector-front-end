@@ -9,6 +9,7 @@ import DamageDetectedComponent from "./components/DamageDetected/damageDetected.
 import RecoverPriceComponent from "./components/RecoverPrice/recoverPrice.js";
 import DamageListComponent from "./components/DamageDetected/damagesList.js";
 import RecoverPriceListComponent from "./components/RecoverPrice/recoverPriceList";
+import RegisterComponent from "./components/Register/register.js";
 
 
 
@@ -31,6 +32,7 @@ function App() {
           <Route exact path="/viewRecoverPrice/:id" element={<RecoverPriceComponent />}></Route>
           <Route exact path="/viewDamageList" element={<DamageListComponent />}></Route>
           <Route exact path="/viewRecoverPriceList" element={<RecoverPriceListComponent />}></Route>
+          <Route exact path="/createUser" element={<RegisterComponent />}></Route>
 
         </Routes>
       </Router>

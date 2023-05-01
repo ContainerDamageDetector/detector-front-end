@@ -86,7 +86,7 @@ class RecoverPriceComponent extends Component {
                             Title
                           </StyledTableCell>
                           <StyledTableCell align="center">
-                            Recover Price
+                            Recover Price (USD)
                           </StyledTableCell>
                         </TableRow>
                       </TableHead>
