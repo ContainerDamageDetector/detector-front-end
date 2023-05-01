@@ -1,16 +1,12 @@
 import React, { Component } from "react";
-import styles from "./navigation.module.css";
 import AppBar from "@mui/material/AppBar";
 import {
   Button,
   Grid,
-  Link,
   Tab,
   Tabs,
   Toolbar,
-  Typography,
 } from "@mui/material";
-import AcUnitIcon from "@mui/icons-material/AcUnit";
 
 class NavigationComponent extends Component {
   state = {};
@@ -20,7 +16,6 @@ class NavigationComponent extends Component {
         <AppBar sx={{ background: "#04549c" }}>
           <Toolbar>
             <Grid container>
-              {/* <AcUnitIcon></AcUnitIcon> */}
               <Grid>
                 <Tabs textColor="inherit">
                   {/* <Tab item xs={2.5} label="Login" href="/login"></Tab> */}

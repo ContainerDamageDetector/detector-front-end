@@ -14,6 +14,7 @@ import RegisterComponent from "./components/Register/register.js";
 
 
 export const authentication = {
+  //checks if there is a value for accessToken
   getLoginInStatus() {
     var isLoggedIn = localStorage.getItem("accessToken");
     return !!isLoggedIn

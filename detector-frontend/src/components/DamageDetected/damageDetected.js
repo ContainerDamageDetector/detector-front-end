@@ -13,6 +13,7 @@ function DamageDetectedComponent() {
   const [severity, setSeverity] = useState(null);
   const [imageSrc, setImageSrc] = useState("");
 
+  //Fetches image data using id and sets image state
   useEffect(() => {
     getImageData(parseInt(id))
       .then((res) => {
@@ -27,6 +28,7 @@ function DamageDetectedComponent() {
   const [imageData, setImageData] = useState(imageSrc);
   console.log("imageData", imageData)
 
+  //UseEffect fetching image data and updating state
   useEffect(() => {
     getImageData(parseInt(id))
       .then((res) => {
@@ -40,6 +42,7 @@ function DamageDetectedComponent() {
       });
   }, [id]);
 
+  //Loading image data and fetching image source
   useEffect(() => {
     if (!imageData) return 
     const key = imageData.split("images/")[1];
@@ -115,14 +118,6 @@ function DamageDetectedComponent() {
                       </Grid>
                     </Grid>
 
-                    {/* <Grid container spacing={2} columns={16}>
-                      <Grid p xs={8}>
-                        <h4>Damage Component</h4>
-                      </Grid>
-                      <Grid p xs={8}>
-                        <p>(Damage Component)</p>
-                      </Grid>
-                    </Grid> */}
                   </Grid>
                 </Grid>
               </Grid>

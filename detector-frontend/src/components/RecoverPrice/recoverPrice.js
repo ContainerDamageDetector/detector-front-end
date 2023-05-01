@@ -14,6 +14,7 @@ function RecoverPriceComponent() {
   const [imageSrc, setImageSrc] = useState("");
   // const [imageData, setImageData] = useState(null);
 
+  //Fetch image data by id
   useEffect(() => {
     getImageData(parseInt(id))
       .then((res) => {
@@ -25,9 +26,11 @@ function RecoverPriceComponent() {
       });
   }, [id]);
 
+  //Initializing imageData state with imageSrc value
   const [imageData, setImageData] = useState(imageSrc);
   console.log("imageData", imageData)
 
+  //Fetching recover price data using useEffect hook
   useEffect(() => {
     getImageData(parseInt(id))
       .then((res) => {
@@ -40,6 +43,7 @@ function RecoverPriceComponent() {
       });
   }, [id]);
 
+  //Load image data and set source
   useEffect(() => {
     if (!imageData) return 
     const key = imageData.split("images/")[1];
@@ -54,13 +58,7 @@ function RecoverPriceComponent() {
   }, [imageData]);
 
   return (
-    
-
     <div>
-      {/* <h1>Recover Price Component</h1>
-      <p>Id: {id}</p>
-      {recoverPrice && <p>Recover Price: {recoverPrice}</p>} */}
-
       <div>
         <NavigationComponent></NavigationComponent>
         <div className={styles.section1}>
@@ -99,8 +97,6 @@ function RecoverPriceComponent() {
                         <h4>Estimated Recover Price (USD)</h4>
                       </Grid>
                       <Grid p xs={8}>
-                        {/* <p>(Estimated Recover Price)</p> */}
-
                         {<p>{recoverPrice}</p>}
                       </Grid>
                     </Grid>

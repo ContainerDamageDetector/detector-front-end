@@ -25,35 +25,6 @@ class RegisterComponent extends Component {
 
     const onSubmit = (values, props) => {
       console.log(values);
-      // console.log(JSON.stringify(values,null,2));
-
-      // set input values and call login api
-    //   login({
-    //     username: values.userName,
-    //     password: values.password,
-    //   })
-    //     .then((res) => {
-    //       console.log(authentication.getLoginInStatus());
-    //       const { data } = res.data;
-    //       localStorage.setItem("accessToken", data.tokens.accessToken);
-    //       const newUser = { name: data.user.username, loggedIn: true };
-    //       localStorage.setItem("userData", JSON.stringify(newUser));
-    //       this.props.history.push("/");
-    //       // setUser(newUser);
-    //     })
-    //     .catch((err) => {
-    //       console.error(err);
-    //       toast.error("Incorrect Username or Password", {
-    //         position: "bottom-right",
-    //         autoClose: 5000,
-    //         hideProgressBar: false,
-    //         closeOnClick: true,
-    //         pauseOnHover: true,
-    //         draggable: true,
-    //         progress: undefined,
-    //       });
-    //     });
-
       setTimeout(() => {
         props.resetForm();
         props.setSubmitting(false);

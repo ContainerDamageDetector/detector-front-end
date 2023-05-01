@@ -14,6 +14,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
+//Defining custom styled table cell component
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.black,
@@ -24,6 +25,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   },
 }));
 
+//Styling table rows with odd types
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   "&:nth-of-type(odd)": {
     backgroundColor: theme.palette.action.hover,
@@ -42,6 +44,7 @@ class DamageListComponent extends Component {
     };
   }
 
+  //Fetching and setting data using state
   componentDidMount() {
     getDamageList()
       .then((res) => {
@@ -54,6 +57,7 @@ class DamageListComponent extends Component {
   }
 
   render() {
+    //Fetching items state from component
     const { items } = this.state;
 
     return (
