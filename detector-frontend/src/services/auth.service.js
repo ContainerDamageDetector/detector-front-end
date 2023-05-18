@@ -3,6 +3,9 @@ import api from './api.service'
 //call api for login
 export const login = (data) => api.post('/auth/login', data)
 
+//call api for register
+export const register = (data) => api.post('/auth/register', data)
+
 //call api for pass image upload data
 export const uploadImage = (data) => api.post('/image',data)
 
@@ -21,3 +24,5 @@ export const getRecoverPriceList = () => api.get('/image/recoverPriceList')
 //get image from s3 bucket
 export const getImage = (key) => api.get(`image/uploads/images/${key}`)
 
+// call api for logout
+export const logout = (data) => api.get('/auth/logout',data)
