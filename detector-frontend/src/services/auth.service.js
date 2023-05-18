@@ -25,4 +25,4 @@ export const getRecoverPriceList = () => api.get('/image/recoverPriceList')
 export const getImage = (key) => api.get(`image/uploads/images/${key}`)
 
 // call api for logout
-export const logout = (data) => api.get('/auth/logout',data)
+export const logout = () => api.get('/auth/logout')
